@@ -1,0 +1,239 @@
+:root{
+  --bgColor:#012619;
+  --fontColor:#fff;
+  --innerCircleColor:#F29544;
+  --circleColor:#730202;
+  --extractedColor:#F21628;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+*:not(input)::selection{
+  background:#0000;
+}
+html,body{
+  font-family: 'Pushster', cursive;
+  font-size:clamp(0.2rem,3vw,1rem);
+  background:var(--bgColor);
+  color:var(--fontColor);
+}
+
+input[type=number]{
+  width:100%;
+  border:none;
+  background:var(--innerCircleColor);
+  color:var(--fontColor);
+  font-size:1.5rem;
+  font-family: "Times New Roman", sans-serif;
+  font-weight:bold;
+  text-align:center;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input::placeholder{color:#fff5;}
+section{
+  min-height: 100vh;
+}
+.light{
+  text-shadow:0px 0px 30px #fd0;
+}
+.intro{
+  display: grid;
+  place-content:center;
+}
+.intro .title{
+  animation:blink 3s ease-in-out infinite alternate;
+}
+
+.logo{
+  font-size:4rem;
+}
+span{
+  font-size:8rem;
+}
+.instructions{
+  padding:4rem;
+  background:#0003;
+}
+.instructions .title{
+  font-size:4rem;
+}
+.text{
+  margin-bottom:4rem;
+  font-style:justify;
+  font-size:1.5rem;
+}
+.main{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  padding:3rem 0 0 0;
+}
+
+.extraction,.n{
+  font-family:"Times New Roman", sans-serif;
+  font-weight:bold;
+}
+
+.extracted{
+  background:var(--innerCircleColor);
+  font-size:2rem;
+  padding:10px;
+  border-radius:18px;
+  display:grid;
+  grid-template-columns:auto auto;
+  grid-gap:10px;
+}
+
+.cartella{
+  border-radius:10px;
+  width:300px;
+  border: 5px solid var(--);
+  padding:10px;
+  background:var(--bgColor);
+}
+.row{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.extractedN{color:var(--extractedColor);}
+
+header{
+  font-size:2rem;
+  width: 100vw;
+  display:grid;
+  grid-gap:30px 0;
+  grid-template-columns:repeat(5,20%);
+  grid-template-rows:repeat(2,auto);
+  grid-template-areas:
+    "tombola cinquina terzina ambo restart"
+    ". play play play .";
+}
+.case{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:10px 0;
+}
+.title{
+  width:fit-content;
+  margin-bottom:10px;
+  font-size:1.5rem;
+  padding:5px 10px;
+  place-self:center;
+}
+
+.tombola{
+  grid-area:tombola;
+}
+.cinquina{grid-area:cinquina;}
+.ambo{grid-area:ambo;}
+.terno{grid-area:terno;}
+.quaderna{grid-area:quaderna;}
+.rigiocare{grid-area:restart;}
+.betN{
+  background:var(--innerCircleColor);
+  grid-area:betN;
+}
+.play{
+  grid-area:play;
+  display:grid;
+  place-content:center;
+}
+.extraction{
+  padding:10px;
+  border-radius:100px;
+  background:var(--innerCircleColor);
+  color:var(--circleColor);
+  cursor:pointer;
+}
+
+.circle{
+  background:var(--innerCircleColor);
+  color:var(--fontColor);
+  display:grid;
+  place-content:center;
+  place-self:center;
+  text-align:center;
+  padding:10px;
+  height:15vh;
+  width:15vh;
+  border-radius:50%;
+  border: 10px solid var(--circleColor);
+}
+.bets{
+  width:fit-content;
+  cursor:pointer;
+}
+.bets:hover{
+  background:#0003;
+  border-radius:50px;
+}
+
+.bet{
+  display:grid;
+}
+.btn{
+  cursor:pointer;
+}
+
+.rigiocare{
+  padding:25px;
+}
+.rigiocare:hover, .extraction:hover{
+  filter:brightness(95%);
+}
+.rigiocare:active, .extraction:active{
+  filter:brightness(85%);;
+}
+.rigiocare img{
+  height:100%;
+  width:100%;
+  filter:invert();
+}
+
+@media only screen and (max-width: 600px){
+  .instructions{
+    padding:30px;
+  }
+  .main{
+    padding:40px 0;
+  }
+  .extracted{
+    grid-gap:10px;
+    grid-template-columns:auto;
+    margin-bottom:30px;
+  }
+  .cartella{
+    width:90vw;
+  }
+  .row{
+    justify-content:space-evenly;
+  }
+  .circle{
+    padding: 5px;
+    height:clamp(3rem,15vw,6rem);
+    width:clamp(3rem,15vw,6rem);
+    border:clamp(5px,2vw,15px) solid var(--circleColor);
+  }
+  .rigiocare{
+    padding:15%;
+  }
+}
+@keyframes blink{
+  from{color:#fff1;}
+  to{color:#ffff;}
+}
